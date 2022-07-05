@@ -6,7 +6,7 @@ import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
   //these 3 objects are what useQuery standardly returns from a query
-  const { data, error, isLoading } = trpc.useQuery(["hello"]);
+  // const { data, error, isLoading } = trpc.useQuery(["hello"]);
   if (isLoading) return <p>Loading...</p>;
   if (error) return <div>{JSON.stringify(error)}</div>;
   return <h1 className="">{JSON.stringify(data)}</h1>;
