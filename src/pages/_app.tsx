@@ -5,6 +5,7 @@ import { loggerLink } from "@trpc/client/links/loggerLink";
 import { httpBatchLink } from "@trpc/client/links/httpBatchLink";
 import superjson from "superjson";
 import { AppRouter } from "../server/route/app.router";
+import { url } from "../constants";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
@@ -14,11 +15,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default withTRPC<AppRouter>({
   config({ ctx }) {
     //this HOC contains the config for the trpc client
-    const url = process.env.NEXT_PUBLIC_VERCEL_URL
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`
-      : "http://localhost:3000/api/trpc";
-    // we set the url of the trpc server based on if we are in production or not
-    // of course -- we are going to deploy to vercel so we are able to use the NEXT_PUBLIC_VERCEL_URL env variable above...
 
     //we compile loggerLink and the httpBatchLinks into a single links array. This is so it is faster to return all the links in the return statement below.
     const links = [

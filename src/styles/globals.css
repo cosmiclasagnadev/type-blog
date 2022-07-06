@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* html {
+html {
   font-size: 16px;
 }
 html,
@@ -59,4 +59,4 @@ button {
 form {
   display: flex;
   flex-direction: column;
-} */
+}
